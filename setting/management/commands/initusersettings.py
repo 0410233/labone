@@ -11,9 +11,9 @@ class Command(BaseCommand):
 
         # 添加配置项
         settings = [{
-            'key': 'lesson_signin_points',
+            'key': 'signin_points',
             'value': '10',
-            'name': '课程签到积分',
+            'name': '签到积分',
             'group': UserSetting.Group.POINTS,
         }]
 

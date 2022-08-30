@@ -13,7 +13,7 @@ class Teacher(models.Model):
     gender = models.IntegerField('性别', default=0, choices=[(0, '未设置'), (1, '男'), (2, '女')])
     birthday = models.DateField('生日', blank=True, null=True)
     mobile = models.CharField('联系方式', max_length='50')
-    grade = models.ForeignKey('setting.Grade', on_delete=models.SET_NULL, verbose_name='年级id', blank=True, null=True)
+    # grade = models.ForeignKey('setting.Grade', on_delete=models.SET_NULL, verbose_name='年级id', blank=True, null=True)
     
     created_at = models.DateTimeField('创建时间', auto_now_add=True)
     updated_at = models.DateTimeField('修改时间', auto_now=True)
@@ -60,7 +60,7 @@ class Student(models.Model):
     gender = models.IntegerField('性别', default=0, choices=[(0, '未设置'), (1, '男'), (2, '女')])
     birthday = models.DateField('生日', blank=True, null=True)
     parent = models.ForeignKey('member.Parent', on_delete=models.SET_NULL, verbose_name='家长', blank=True, null=True)
-    grade = models.ForeignKey('setting.Grade', on_delete=models.SET_NULL, verbose_name='年级', blank=True, null=True)
+    # grade = models.ForeignKey('setting.Grade', on_delete=models.SET_NULL, verbose_name='年级', blank=True, null=True)
     
     created_at = models.DateTimeField('创建时间', auto_now_add=True)
     updated_at = models.DateTimeField('修改时间', auto_now=True)
