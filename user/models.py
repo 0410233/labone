@@ -57,7 +57,7 @@ class User(AbstractUser):
 #     referrer = models.ForeignKey('user.User', on_delete=models.CASCADE, related_name='+', verbose_name='邀请人id')
 #     user = models.OneToOneField('user.User', on_delete=models.CASCADE, related_name='+', verbose_name='被邀请人id')
 
-#     create_time = models.DateTimeField('创建时间', auto_now_add=True)
+#     created_at = models.DateTimeField('创建时间', auto_now_add=True)
 
 #     def __str__(self):
 #         return str(self.pk)

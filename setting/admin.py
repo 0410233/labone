@@ -25,8 +25,8 @@ class UserSettingAdmin(BaseAdmin):
 
 @admin.register(models.SystemTaskLog)
 class SystemTaskLogAdmin(BaseAdmin):
-    list_display = ("id", "task_type", "remark", "create_time", )
-    ordering = ('-create_time',)
+    list_display = ("id", "task_type", "remark", "created_at", )
+    ordering = ('-created_at',)
 
     def has_add_permission(self, request):
         return False

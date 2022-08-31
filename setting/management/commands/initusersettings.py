@@ -13,7 +13,7 @@ class Command(BaseCommand):
         settings = [{
             'key': 'signin_points',
             'value': '10',
-            'name': '签到积分',
+            'name': '签到得积分',
             'group': UserSetting.Group.POINTS,
         }]
 

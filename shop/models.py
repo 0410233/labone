@@ -31,7 +31,26 @@ class PointLog(models.Model):
         ordering = ('-created_at',)
 
 
-class PointGoods(models.Model):
+class PointReport(models.Model):
+    """积分统计"""
+
+    student = models.ForeignKey('member.Student', on_delete=models.CASCADE, verbose_name='学生')
+    points = models.FloatField('积分')
+    
+    created_at = models.DateTimeField('创建时间', auto_now_add=True)
+    updated_at = models.DateTimeField('修改时间', auto_now=True)
+
+    def __str__(self) -> str:
+        return '{}-{}'.format(str(self.student), str(self.points))
+
+    class Meta:
+        verbose_name = '积分统计'
+        verbose_name_plural = verbose_name
+        db_table = 'point_report'
+        ordering = ('-created_at',)
+
+
+class Goods(models.Model):
     """积分商品"""
     
     name = models.CharField('商品名', max_length=45)
@@ -39,8 +58,8 @@ class PointGoods(models.Model):
     price = models.FloatField('兑换所需积分')
     stock = models.IntegerField('库存', blank=True, default=99)
 
-    create_time = models.DateTimeField('创建时间', auto_now_add=True)
-    modify_time = models.DateTimeField('更新时间', auto_now=True)
+    created_at = models.DateTimeField('创建时间', auto_now_add=True)
+    updated_at = models.DateTimeField('更新时间', auto_now=True)
 
     def __str__(self) -> str:
         return '{}-{}'.format(str(self.pk), self.name)
@@ -48,19 +67,19 @@ class PointGoods(models.Model):
     class Meta:
         verbose_name = '积分商品'
         verbose_name_plural = verbose_name
-        ordering = ('-create_time',)
-        db_table = 'point_goods'
+        ordering = ('-created_at',)
+        db_table = 'goods'
 
 
 class ExchangeLog(models.Model):
     """商品兑换日志"""
 
     student = models.ForeignKey('member.Student', on_delete=models.CASCADE, verbose_name='学生')
-    goods = models.ForeignKey('shop.PointGoods', on_delete=models.CASCADE, verbose_name='商品')
+    goods = models.ForeignKey('shop.Goods', on_delete=models.CASCADE, verbose_name='商品')
     points = models.FloatField('积分')
 
-    create_time = models.DateTimeField('创建时间', auto_now_add=True)
-    modify_time = models.DateTimeField('更新时间', auto_now=True)
+    created_at = models.DateTimeField('创建时间', auto_now_add=True)
+    updated_at = models.DateTimeField('更新时间', auto_now=True)
 
     def __str__(self) -> str:
         return '{}-{}'.format(str(self.student), str(self.goods))
@@ -68,5 +87,5 @@ class ExchangeLog(models.Model):
     class Meta:
         verbose_name = '商品兑换日志'
         verbose_name_plural = verbose_name
-        ordering = ('-create_time',)
+        ordering = ('-created_at',)
         db_table = 'exchange_log'

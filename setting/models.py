@@ -76,22 +76,3 @@ class SystemTaskLog(models.Model):
         verbose_name_plural = verbose_name
         ordering = ('-created_at',)
         db_table = 'system_task_log'
-
-
-class Grade(models.Model):
-    """年级"""
-
-    name = models.CharField('年级', max_length='50')
-    display = models.IntegerField('显示顺序', blank=True, default=0, help_text='大的靠前')
-    
-    created_at = models.DateTimeField('创建时间', auto_now_add=True)
-    updated_at = models.DateTimeField('更新时间', auto_now=True)
-
-    def __str__(self) -> str:
-        return self.name
-
-    class Meta:
-        verbose_name = '年级'
-        verbose_name_plural = verbose_name
-        db_table = 'grades'
-        ordering = ('-display', 'created_at')
