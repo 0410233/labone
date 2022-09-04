@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'setting',
     'user',
     'member',
+    'lesson',
     'shop',
     'teaching',
 ]

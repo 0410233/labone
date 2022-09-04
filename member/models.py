@@ -6,7 +6,7 @@ from server.utils import get_file_path
 
 
 class Teacher(models.Model):
-    """教师"""
+    """老师"""
 
     name = models.CharField('姓名', max_length=50)
     avatar = models.ImageField('头像', upload_to=get_file_path, max_length=500, blank=True, null=True)
@@ -22,7 +22,7 @@ class Teacher(models.Model):
         return '{}-{}'.format(self.name, self.mobile)
 
     class Meta:
-        verbose_name = '教师'
+        verbose_name = '老师'
         verbose_name_plural = verbose_name
         db_table = 'teachers'
         ordering = ('-created_at',)
