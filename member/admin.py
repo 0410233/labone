@@ -6,22 +6,22 @@ from .models import *
 # Register your models here.
 
 
-@admin.register(Teacher)
-class TeacherAdmin(admin.ModelAdmin):
+# @admin.register(Teacher)
+# class TeacherAdmin(admin.ModelAdmin):
 
-    search_fields = ("name",)
-    list_filter = ("gender",)
-    list_display = (
-        "id", "name", "view_avatar", "gender", "birthday", "mobile",
-        "created_at", "updated_at",
-    )
-    ordering = ('-created_at', )
+#     search_fields = ("name",)
+#     list_filter = ("gender",)
+#     list_display = (
+#         "id", "name", "view_avatar", "gender", "birthday", "mobile",
+#         "created_at", "updated_at",
+#     )
+#     ordering = ('-created_at', )
 
-    def view_avatar(self, obj: Teacher):
-        if obj.avatar:
-            return admin_image_view(obj.avatar.name)
-        return '-'
-    view_avatar.short_description = '头像'
+#     def view_avatar(self, obj: Teacher):
+#         if obj.avatar:
+#             return admin_image_view(obj.avatar.name)
+#         return '-'
+#     view_avatar.short_description = '头像'
 
 
 @admin.register(Parent)

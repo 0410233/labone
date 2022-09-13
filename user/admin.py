@@ -24,7 +24,7 @@ class BaseAdmin(admin.ModelAdmin):
 class UserAdmin(UserAdmin1):
     fieldsets = (
         (None, {'fields': ('username', 'password')}),
-        (_('Personal info'), {'fields': ("name", "avatar", "gender", "birthday", "openid", "unionid", "session_key", "wx_user_info", "role", "tags" )}),
+        (_('Personal info'), {'fields': ("name", "avatar", "gender", "birthday", "openid", "unionid", "session_key", "wx_user_info", "role" )}),
         (_('Permissions'), {'fields': ('is_active', 'is_staff', 'is_superuser',
                                        'groups', 'user_permissions')}),
         (_('Important dates'), {'fields': ('last_login', 'date_joined')}),

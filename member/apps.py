@@ -4,4 +4,4 @@ from django.apps import AppConfig
 class MemberConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
     name = 'member'
-    verbose_name = '2.老师和学生'
+    verbose_name = '1.老师和学生'
